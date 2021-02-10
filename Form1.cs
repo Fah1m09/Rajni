@@ -105,7 +105,7 @@ namespace Rajni
             }           
             foreach (var word in words)
             {
-               
+               for(int i=0; i<str.Length; i++) {
                     if (word.Contains(str[i]))
                     {
                         string[] tup = word.Split('|');
@@ -117,12 +117,14 @@ namespace Rajni
                     if (word.Contains(hist[0]) && word.Contains("ED"))
                     {
                         string[] tup = word.Split('|');
-                        
-                            if (tup[5] != "")
-                            {
-                                string[] ht = tup[5].Split('^');
-                                //histdata[0] = ht[4].ToString();
-                            }
+
+                        if (tup[5] != "")
+                        {
+                            string[] ht = tup[5].Split('^');
+                            //histdata[0] = ht[4].ToString();
+                        }
+                    }
+                    
                         
             }       }        
                 int flag = 0;
