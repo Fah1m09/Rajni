@@ -97,11 +97,6 @@ namespace Rajni
             this.Close();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            openchildForm(new Form1());
-        }
-
         private void button8_Click(object sender, EventArgs e)
         {
             if (key == 0)

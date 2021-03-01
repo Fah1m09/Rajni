@@ -75,7 +75,9 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -117,31 +119,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HemaDBDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HemaDBDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HemaDBDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HemaDBDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HemaDBDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HemaDBDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HemaDBDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HemaDBDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HemaDBDataSet5.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HemaDBDataSet6.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HemaDBDataSet6.xsd</DependentUpon>
     </Compile>
     <Compile Include="HemaDBDataSet7.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -220,61 +197,6 @@
     <None Include="HemaDBDataSet1.xss">
       <DependentUpon>HemaDBDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="HemaDBDataSet2.xsc">
-      <DependentUpon>HemaDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HemaDBDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HemaDBDataSet2.xss">
-      <DependentUpon>HemaDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet3.xsc">
-      <DependentUpon>HemaDBDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HemaDBDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HemaDBDataSet3.xss">
-      <DependentUpon>HemaDBDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet4.xsc">
-      <DependentUpon>HemaDBDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HemaDBDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HemaDBDataSet4.xss">
-      <DependentUpon>HemaDBDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet5.xsc">
-      <DependentUpon>HemaDBDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HemaDBDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HemaDBDataSet5.xss">
-      <DependentUpon>HemaDBDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet6.xsc">
-      <DependentUpon>HemaDBDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="HemaDBDataSet6.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HemaDBDataSet6.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HemaDBDataSet6.xss">
-      <DependentUpon>HemaDBDataSet6.xsd</DependentUpon>
-    </None>
     <None Include="HemaDBDataSet7.xsc">
       <DependentUpon>HemaDBDataSet7.xsd</DependentUpon>
     </None>
@@ -309,6 +231,8 @@
       <DependentUpon>HemaDB.mdf</DependentUpon>
     </Content>
     <Content Include="rajanigondha_lri_icon.ico" />
+    <None Include="SPINCELL-AR.png" />
+    <None Include="Resources\SPIN_IMG_4.JPG" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -336,8 +260,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,14 +19,13 @@ namespace Rajni
     public partial class Form1 : MaterialForm
     {
         string dataIN;
-        int temp = 0;
+
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Project\\Rajni\\HemaDB.mdf;Integrated Security=True");
-        string dtwbchist, dtrbchist, dtplthist;
-        double wbc, plt, mono, eso;
-        string[] hist = { "WBCHistogram", "RBCHistogram", "PLTHistogram" };
+        string[] n = new string[300]; string[] p = new string[300]; string[] q = new string[150]; int[] knwbc = new int[300]; int[] knrbc = new int[300]; int[] knplt = new int[150];
         string[] str = { "WBC", "LY%", "MI%", "GR%", "RBC", "HGB", "HCT", "MCV", "MCH", "MCHC", "RDW_CV", "RDW_SD", "PLT", "MPV", "PDW", "PCT", "P_LCR", "P_LCC" };
-        float[] vari = new float[18]; float[] id = new float[2];
-        int[] histdata = new int[3];
+        float[] vari = new float[18]; int[] id = new int[2];
+        int[] store = new int[100]; int st;
+
 
         private void btnClose_Click_1(object sender, EventArgs e)
         {
@@ -92,109 +91,140 @@ namespace Rajni
                 if (word.Contains("PID"))
                 {
                     string[] tup = word.Split('|');
-                    id[0] = float.Parse(tup[2]);
+                    id[0] = int.Parse(tup[2]);
+                    store[st] = id[0];
                 }
-            }
-            foreach (var word in words)
-            {
+                st = st + 1;
                 if (word.Contains("OBR"))
                 {
-                    string[] tup = word.Split('|');                   
-                    id[1] = float.Parse(tup[3]);                                   
+                    string[] tup = word.Split('|');
+                    id[1] = int.Parse(tup[3]);
                 }
-            }           
-            foreach (var word in words)
-            {
-               for(int i=0; i<str.Length; i++) {
+                for (int i = 0; i < str.Length; i++)
+                {
                     if (word.Contains(str[i]))
                     {
                         string[] tup = word.Split('|');
                         if (tup[1] == "1")
                         {
-                            vari[i] = float.Parse(tup[5].ToString());
+                            vari[i] = float.Parse(tup[5]);
                         }
                     }
-                    if (word.Contains(hist[0]) && word.Contains("ED"))
+                    if (word.Contains("WBCHistogram") && word.Contains("ED"))
                     {
                         string[] tup = word.Split('|');
 
                         if (tup[5] != "")
                         {
                             string[] ht = tup[5].Split('^');
-                            //histdata[0] = ht[4].ToString();
+
+                            for (int k = 14; k < 300; k += 2)
+                            {
+                                n[k] = ht[4][k] + "" + ht[4][k + 1];
+                                knwbc[k] = Convert.ToInt32(n[k], 16);
+                            }
                         }
                     }
-                    
-                        
-            }       }        
-                int flag = 0;
-                if (flag == 0)
+                    if (word.Contains("RBCHistogram") && word.Contains("ED"))
+                    {
+                        string[] tup = word.Split('|');
+
+                        if (tup[5] != "")
+                        {
+                            string[] ht = tup[5].Split('^');
+                            for (int s = 20; s < 300; s += 2)
+                            {
+                                n[s] = ht[4][s] + "" + ht[4][s + 1];
+                                knrbc[s] = (Convert.ToInt32(n[s], 16));
+                            }
+                        }
+                    }
+                    if (word.Contains("PLTHistogram") && word.Contains("ED"))
+                    {
+                        string[] tup = word.Split('|');
+
+                        if (tup[5] != "")
+                        {
+                            string[] ht = tup[5].Split('^');
+                            System.Console.WriteLine(ht[4]);
+                            for (int y = 0; y < 110; y += 2)
+                            {
+                                q[y] = ht[4][y] + "" + ht[4][y + 1];
+                                knplt[y] = Convert.ToInt32(q[y], 16);
+                            }
+                        }
+                    }                     
+                }               
+             }
+            int flag = 0;
+            if (flag == 0)
+            {
+                SqlCommand cmd = new SqlCommand("AddPpT3", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                cmd.Parameters.AddWithValue("@pid", id[0]);
+                cmd.Parameters.AddWithValue("@iid", id[1]);
+                cmd.Parameters.AddWithValue("@tdate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@wbc", vari[0] * 1000);
+                cmd.Parameters.AddWithValue("@lymp", vari[1]);
+                cmd.Parameters.AddWithValue("@grp", vari[3]);
+                cmd.Parameters.AddWithValue("@rbc", vari[4]);
+                cmd.Parameters.AddWithValue("@hgb", vari[5]);
+                cmd.Parameters.AddWithValue("@hct", vari[6]);
+                cmd.Parameters.AddWithValue("@mcv", vari[7]);
+                cmd.Parameters.AddWithValue("@mch", vari[8]);
+                cmd.Parameters.AddWithValue("@mchc", vari[9]);
+                cmd.Parameters.AddWithValue("@rdw_cv", vari[10]);
+                cmd.Parameters.AddWithValue("@rdw_sd", vari[11]);
+                cmd.Parameters.AddWithValue("@plt", vari[12] * 1000);
+                cmd.Parameters.AddWithValue("@mpv", vari[13]);
+                cmd.Parameters.AddWithValue("@pdw", vari[14]);
+                cmd.Parameters.AddWithValue("@pct", vari[15]);
+                cmd.Parameters.AddWithValue("@p_lcr", vari[16]);
+                cmd.Parameters.AddWithValue("@p_lcc", vari[17]);
+                try
                 {
-                    SqlCommand cmd = new SqlCommand("AddPpT3", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    con.Open();
-
-                    cmd.Parameters.AddWithValue("@pid", id[0]);
-                    cmd.Parameters.AddWithValue("@iid", id[1]);
-                    cmd.Parameters.AddWithValue("@tdate", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@wbc", vari[0]);
-                    cmd.Parameters.AddWithValue("@lymp", vari[1]);
-                    cmd.Parameters.AddWithValue("@midp", vari[2]);
-                    cmd.Parameters.AddWithValue("@grp", vari[3]);
-                    cmd.Parameters.AddWithValue("@rbc", vari[4]);
-                    cmd.Parameters.AddWithValue("@hgb", vari[5]);
-                    cmd.Parameters.AddWithValue("@hct", vari[6]);
-                    cmd.Parameters.AddWithValue("@mcv", vari[7]);
-                    cmd.Parameters.AddWithValue("@mch", vari[8]);
-                    cmd.Parameters.AddWithValue("@mchc", vari[9]);
-                    cmd.Parameters.AddWithValue("@rdw_cv", vari[10]);
-                    cmd.Parameters.AddWithValue("@rdw_sd", vari[11]);
-                    cmd.Parameters.AddWithValue("@plt", vari[12]);
-                    cmd.Parameters.AddWithValue("@mpv", vari[13]);
-                    cmd.Parameters.AddWithValue("@pdw", vari[14]);
-                    cmd.Parameters.AddWithValue("@pct", vari[15]);
-                    cmd.Parameters.AddWithValue("@p_lcr", vari[16]);
-                    cmd.Parameters.AddWithValue("@p_lcc", vari[17]);
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Invalid SQL Operation\n" + ex);
-                    }
-                    con.Close();
-                    flag = 1;
+                    cmd.ExecuteNonQuery();
                 }
-
-                if (flag == 1)
+                catch (Exception ex)
                 {
-                    SqlCommand cmd2 = new SqlCommand("AddUserInput", con);
-                    cmd2.CommandType = CommandType.StoredProcedure;
-                    con.Open();
-                    cmd2.Parameters.AddWithValue("@pid", id[0]);
-                    cmd2.Parameters.AddWithValue("@eso", eso);
-                    try
-                    {
-                        cmd2.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Invalid SQL Operation\n" + ex);
-                    }
-                    con.Close();
-                    flag = 2;
+                    MessageBox.Show("Invalid SQL Operation\n" + ex);
                 }
-                if (flag == 2)
+                con.Close();
+                flag = 1;
+            }
+
+            if (flag == 1)
+            {
+                SqlCommand cmd2 = new SqlCommand("AddUserInput", con);
+                cmd2.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                cmd2.Parameters.AddWithValue("@pid", id[0]);
+                cmd2.Parameters.AddWithValue("@eso", vari[2] * .3);
+                cmd2.Parameters.AddWithValue("@baso", 0);
+                cmd2.Parameters.AddWithValue("@mono", vari[2] * .7);
+                try
                 {
-                    string cd1 = "wbc", cd2 = "rbc", cd3 = "plt";
-                    SqlCommand cmd3 = new SqlCommand("Addhistogram", con);
+                    cmd2.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Invalid SQL Operation\n" + ex);
+                }
+                con.Close();
+                flag = 2;
+            }
+            if (flag == 2)
+            {
+                for (int k = 14; k < 300; k = k + 2)
+                {
+
+                    SqlCommand cmd3 = new SqlCommand("AddhistogramWBC", con);
                     cmd3.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     cmd3.Parameters.AddWithValue("@pid", id[0]);
-                    cmd3.Parameters.AddWithValue("@code", cd1);
-                    cmd3.Parameters.AddWithValue("@ycord", histdata[0]);                   
+                    cmd3.Parameters.AddWithValue("@ycord", knwbc[k]);
+                    cmd3.Parameters.AddWithValue("@hr_range", k);
                     try
                     {
                         cmd3.ExecuteNonQuery();
@@ -204,10 +234,56 @@ namespace Rajni
                         MessageBox.Show("Invalid SQL Operation\n" + ex);
                     }
                     con.Close();
-                    temp = temp + 1; 
-                }          
+                }
+                flag = 3;
+            }
+            if (flag == 3)
+            {
+                for (int l = 30; l < 300; l = l + 2)
+                {
+                    SqlCommand cmd4 = new SqlCommand("AddhistogramRBC", con);
+                    cmd4.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd4.Parameters.AddWithValue("@pid", id[0]);
+                    cmd4.Parameters.AddWithValue("@ycord", knrbc[l]);
+                    cmd4.Parameters.AddWithValue("@hr_range", l);
+                    try
+                    {
+                        cmd4.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Invalid SQL Operation\n" + ex);
+                    }
+                    con.Close();
+
+                }
+                flag = 4;
+            }
+            if (flag == 4)
+            {
+                for (int m = 0; m < 150; m = m + 2)
+                {
+                    SqlCommand cmd5 = new SqlCommand("AddhistogramPLT", con);
+                    cmd5.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd5.Parameters.AddWithValue("@pid", id[0]);
+                    cmd5.Parameters.AddWithValue("@ycord", knplt[m]);
+                    cmd5.Parameters.AddWithValue("@hr_range", m);
+                    try
+                    {
+                        cmd5.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Invalid SQL Operation\n" + ex);
+                    }
+                    con.Close();
+                }
+            }
             refresh_DataGridView();
         }
+
         public void refresh_DataGridView()
         {
             try
@@ -217,7 +293,6 @@ namespace Rajni
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);
-
                 con.Open();
                 try
                 {
@@ -228,12 +303,11 @@ namespace Rajni
                     MessageBox.Show("Invalid SQL Operation\n" + ex);
                 }
                 con.Close();
-
                 dataGridView.DataSource = DS.Tables[0];
-                for (int i=0; i<21; i++)
+                for (int i = 0; i < 20; i++)
                 {
                     this.dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                }                
+                }
             }
             catch (Exception ex)
             {

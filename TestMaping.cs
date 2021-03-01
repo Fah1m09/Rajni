@@ -47,7 +47,7 @@ namespace Rajni
 
         
                 dataGridView.DataSource = DS.Tables[0];
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     this.dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
