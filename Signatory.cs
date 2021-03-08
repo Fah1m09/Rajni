@@ -30,9 +30,7 @@ namespace Rajni
             try
             {
 
-                SqlCommand cmd = new SqlCommand("ShowSig", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Report", con);
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);
@@ -70,7 +68,6 @@ namespace Rajni
             {
                 try
                 {
-
                     SqlCommand cmd = new SqlCommand("SearchSig", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@sigid", tboxSigid.Text);
@@ -110,12 +107,10 @@ namespace Rajni
             {
                 SqlCommand cmd = new SqlCommand("AddSig", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-
                 cmd.Parameters.AddWithValue("@sigid", tboxSigid.Text);
                 cmd.Parameters.AddWithValue("@sig1", tboxSig1.Text);
                 cmd.Parameters.AddWithValue("@sig2", tboxSig2.Text);
                 cmd.Parameters.AddWithValue("@sig3", tboxSig3.Text);
-
                 con.Open();
                 try
                 {
@@ -133,7 +128,6 @@ namespace Rajni
             {
                 System.Windows.Forms.MessageBox.Show("Insert Signature ID and Signature");
             }
-            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -142,9 +136,7 @@ namespace Rajni
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("DeleteSig", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
+                    SqlCommand cmd = new SqlCommand("delete from Report where sigid = @sigid", con);
                     cmd.Parameters.AddWithValue("@sigid", tboxSigid.Text);
 
                     con.Open();

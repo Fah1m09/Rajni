@@ -32,9 +32,7 @@ namespace Rajni
             try
             {
 
-                SqlCommand cmd = new SqlCommand("ShowDoc", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Doctor", con);
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);
@@ -123,8 +121,7 @@ namespace Rajni
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("DeleteDoctor", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("delete from Doctor where Doc_Id = @Doc_Id", con);
                     cmd.Parameters.AddWithValue("@Doc_Id", tboxDid.Text);
                     con.Open();
                     try

@@ -32,29 +32,24 @@ namespace Rajni
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rajnigondha));
             this.panelfill = new System.Windows.Forms.Panel();
             this.panelchildForm = new System.Windows.Forms.TableLayoutPanel();
-            this.button8 = new System.Windows.Forms.Button();
+            this.boxbtnData = new System.Windows.Forms.Button();
             this.boxbtnreport = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.boxbtnMaping = new System.Windows.Forms.Button();
             this.boxbtndoc = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.boxbtnSignature = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btndocsetup = new System.Windows.Forms.Button();
-            this.panelbtm = new System.Windows.Forms.Panel();
-            this.btnexit = new System.Windows.Forms.Button();
-            this.btnsinatory = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
-            this.btnDataTransfer = new System.Windows.Forms.Button();
-            this.btnhematology3 = new System.Windows.Forms.Button();
-            this.panellogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.sidebtnDoctor = new System.Windows.Forms.Button();
+            this.sidebtnSignature = new System.Windows.Forms.Button();
+            this.sidebtnMaping = new System.Windows.Forms.Button();
+            this.sidebtnData = new System.Windows.Forms.Button();
+            this.sidebtnHematology = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panelfill.SuspendLayout();
             this.panelchildForm.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelbtm.SuspendLayout();
-            this.panellogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelfill
@@ -68,283 +63,261 @@ namespace Rajni
             // 
             // panelchildForm
             // 
-            this.panelchildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(93)))), ((int)(((byte)(91)))));
+            this.panelchildForm.BackColor = System.Drawing.Color.Transparent;
             this.panelchildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelchildForm.BackgroundImage")));
+            this.panelchildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelchildForm.ColumnCount = 4;
-            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelchildForm.Controls.Add(this.button8, 2, 1);
+            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.panelchildForm.Controls.Add(this.boxbtnData, 2, 1);
             this.panelchildForm.Controls.Add(this.boxbtnreport, 2, 2);
-            this.panelchildForm.Controls.Add(this.button10, 2, 3);
+            this.panelchildForm.Controls.Add(this.boxbtnMaping, 2, 3);
             this.panelchildForm.Controls.Add(this.boxbtndoc, 1, 1);
-            this.panelchildForm.Controls.Add(this.button9, 1, 3);
+            this.panelchildForm.Controls.Add(this.boxbtnSignature, 1, 3);
             this.panelchildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelchildForm.Location = new System.Drawing.Point(0, 0);
             this.panelchildForm.Margin = new System.Windows.Forms.Padding(0);
             this.panelchildForm.Name = "panelchildForm";
             this.panelchildForm.RowCount = 5;
-            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.91667F));
+            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
+            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.75F));
+            this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.91667F));
             this.panelchildForm.Size = new System.Drawing.Size(1067, 749);
             this.panelchildForm.TabIndex = 3;
+            this.panelchildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelchildForm_Paint);
             // 
-            // button8
+            // boxbtnData
             // 
-            this.button8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button8.BackColor = System.Drawing.Color.MistyRose;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Font = new System.Drawing.Font("SF Pro Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(535, 152);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(260, 143);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Data Transfer";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.boxbtnData.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.boxbtnData.BackColor = System.Drawing.Color.Lavender;
+            this.boxbtnData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxbtnData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxbtnData.FlatAppearance.BorderSize = 2;
+            this.boxbtnData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxbtnData.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxbtnData.Location = new System.Drawing.Point(536, 174);
+            this.boxbtnData.Name = "boxbtnData";
+            this.boxbtnData.Size = new System.Drawing.Size(207, 134);
+            this.boxbtnData.TabIndex = 1;
+            this.boxbtnData.Text = "Data Transfer";
+            this.boxbtnData.UseVisualStyleBackColor = false;
+            this.boxbtnData.Click += new System.EventHandler(this.button8_Click);
             // 
             // boxbtnreport
             // 
             this.boxbtnreport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.boxbtnreport.BackColor = System.Drawing.Color.Bisque;
+            this.boxbtnreport.BackColor = System.Drawing.Color.Lavender;
             this.boxbtnreport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.boxbtnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.boxbtnreport.Font = new System.Drawing.Font("SF Pro Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxbtnreport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxbtnreport.FlatAppearance.BorderSize = 2;
+            this.boxbtnreport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxbtnreport.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxbtnreport.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.boxbtnreport.Location = new System.Drawing.Point(535, 301);
+            this.boxbtnreport.Location = new System.Drawing.Point(536, 314);
             this.boxbtnreport.Name = "boxbtnreport";
-            this.boxbtnreport.Size = new System.Drawing.Size(260, 143);
+            this.boxbtnreport.Size = new System.Drawing.Size(207, 118);
             this.boxbtnreport.TabIndex = 1;
             this.boxbtnreport.Text = "Hematology Reporting";
             this.boxbtnreport.UseVisualStyleBackColor = false;
             this.boxbtnreport.Click += new System.EventHandler(this.boxbtnreport_Click_1);
             // 
-            // button10
+            // boxbtnMaping
             // 
-            this.button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button10.BackColor = System.Drawing.Color.CadetBlue;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button10.Font = new System.Drawing.Font("SF Pro Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(535, 450);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(260, 143);
-            this.button10.TabIndex = 7;
-            this.button10.Text = "Test Maping";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.boxbtnMaping.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.boxbtnMaping.BackColor = System.Drawing.Color.Lavender;
+            this.boxbtnMaping.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxbtnMaping.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxbtnMaping.FlatAppearance.BorderSize = 2;
+            this.boxbtnMaping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxbtnMaping.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxbtnMaping.Location = new System.Drawing.Point(536, 438);
+            this.boxbtnMaping.Name = "boxbtnMaping";
+            this.boxbtnMaping.Size = new System.Drawing.Size(207, 134);
+            this.boxbtnMaping.TabIndex = 7;
+            this.boxbtnMaping.Text = "Test Maping";
+            this.boxbtnMaping.UseVisualStyleBackColor = false;
+            this.boxbtnMaping.Click += new System.EventHandler(this.button10_Click);
             // 
             // boxbtndoc
             // 
             this.boxbtndoc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.boxbtndoc.BackColor = System.Drawing.Color.Lavender;
             this.boxbtndoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.boxbtndoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.boxbtndoc.Font = new System.Drawing.Font("SF Pro Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxbtndoc.Location = new System.Drawing.Point(269, 152);
+            this.boxbtndoc.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxbtndoc.FlatAppearance.BorderSize = 2;
+            this.boxbtndoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxbtndoc.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxbtndoc.Location = new System.Drawing.Point(323, 174);
             this.boxbtndoc.Name = "boxbtndoc";
-            this.boxbtndoc.Size = new System.Drawing.Size(260, 143);
+            this.boxbtndoc.Size = new System.Drawing.Size(207, 134);
             this.boxbtndoc.TabIndex = 2;
             this.boxbtndoc.Text = "Doctor Setup";
             this.boxbtndoc.UseVisualStyleBackColor = false;
             this.boxbtndoc.Click += new System.EventHandler(this.boxbtndoc_Click_1);
             // 
-            // button9
+            // boxbtnSignature
             // 
-            this.button9.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button9.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("SF Pro Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(269, 450);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(260, 143);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Report Signatory";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.boxbtnSignature.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.boxbtnSignature.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.boxbtnSignature.BackColor = System.Drawing.Color.Lavender;
+            this.boxbtnSignature.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.boxbtnSignature.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxbtnSignature.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxbtnSignature.FlatAppearance.BorderSize = 2;
+            this.boxbtnSignature.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxbtnSignature.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxbtnSignature.Location = new System.Drawing.Point(323, 438);
+            this.boxbtnSignature.Name = "boxbtnSignature";
+            this.boxbtnSignature.Size = new System.Drawing.Size(207, 134);
+            this.boxbtnSignature.TabIndex = 2;
+            this.boxbtnSignature.Text = "Report Signatory";
+            this.boxbtnSignature.UseVisualStyleBackColor = false;
+            this.boxbtnSignature.Click += new System.EventHandler(this.button9_Click);
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.AutoScroll = true;
-            this.panelSideMenu.BackColor = System.Drawing.Color.LightSlateGray;
-            this.panelSideMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panelSideMenu.Controls.Add(this.pictureBox2);
-            this.panelSideMenu.Controls.Add(this.btndocsetup);
-            this.panelSideMenu.Controls.Add(this.panelbtm);
-            this.panelSideMenu.Controls.Add(this.btnsinatory);
-            this.panelSideMenu.Controls.Add(this.btnTest);
-            this.panelSideMenu.Controls.Add(this.btnDataTransfer);
-            this.panelSideMenu.Controls.Add(this.btnhematology3);
-            this.panelSideMenu.Controls.Add(this.panellogo);
+            this.panelSideMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelSideMenu.BackgroundImage")));
+            this.panelSideMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelSideMenu.Controls.Add(this.panel2);
+            this.panelSideMenu.Controls.Add(this.panel1);
+            this.panelSideMenu.Controls.Add(this.btnExit);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(10);
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(217, 749);
             this.panelSideMenu.TabIndex = 1;
             // 
-            // pictureBox2
+            // panel2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightSlateGray;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::Rajni.Properties.Resources.SPINCELL_AR;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 335);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(217, 371);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
+            this.panel2.Controls.Add(this.sidebtnDoctor);
+            this.panel2.Controls.Add(this.sidebtnSignature);
+            this.panel2.Controls.Add(this.sidebtnMaping);
+            this.panel2.Controls.Add(this.sidebtnData);
+            this.panel2.Controls.Add(this.sidebtnHematology);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 200);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(217, 250);
+            this.panel2.TabIndex = 8;
             // 
-            // btndocsetup
+            // sidebtnDoctor
             // 
-            this.btndocsetup.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btndocsetup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btndocsetup.FlatAppearance.BorderSize = 0;
-            this.btndocsetup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndocsetup.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndocsetup.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btndocsetup.Location = new System.Drawing.Point(0, 290);
-            this.btndocsetup.Name = "btndocsetup";
-            this.btndocsetup.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btndocsetup.Size = new System.Drawing.Size(217, 45);
-            this.btndocsetup.TabIndex = 11;
-            this.btndocsetup.Text = "Doctor Setup";
-            this.btndocsetup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndocsetup.UseVisualStyleBackColor = false;
-            this.btndocsetup.Click += new System.EventHandler(this.button1_Click_1);
+            this.sidebtnDoctor.BackColor = System.Drawing.Color.Lavender;
+            this.sidebtnDoctor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidebtnDoctor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidebtnDoctor.FlatAppearance.BorderSize = 2;
+            this.sidebtnDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sidebtnDoctor.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sidebtnDoctor.Location = new System.Drawing.Point(0, 200);
+            this.sidebtnDoctor.Margin = new System.Windows.Forms.Padding(0);
+            this.sidebtnDoctor.Name = "sidebtnDoctor";
+            this.sidebtnDoctor.Size = new System.Drawing.Size(217, 50);
+            this.sidebtnDoctor.TabIndex = 10;
+            this.sidebtnDoctor.Text = "Doctor Setup";
+            this.sidebtnDoctor.UseVisualStyleBackColor = false;
+            this.sidebtnDoctor.Click += new System.EventHandler(this.sidebtnDoctor_Click);
             // 
-            // panelbtm
+            // sidebtnSignature
             // 
-            this.panelbtm.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.panelbtm.Controls.Add(this.btnexit);
-            this.panelbtm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelbtm.Location = new System.Drawing.Point(0, 706);
-            this.panelbtm.Name = "panelbtm";
-            this.panelbtm.Size = new System.Drawing.Size(217, 43);
-            this.panelbtm.TabIndex = 10;
+            this.sidebtnSignature.BackColor = System.Drawing.Color.Lavender;
+            this.sidebtnSignature.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidebtnSignature.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidebtnSignature.FlatAppearance.BorderSize = 2;
+            this.sidebtnSignature.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sidebtnSignature.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sidebtnSignature.Location = new System.Drawing.Point(0, 150);
+            this.sidebtnSignature.Margin = new System.Windows.Forms.Padding(0);
+            this.sidebtnSignature.Name = "sidebtnSignature";
+            this.sidebtnSignature.Size = new System.Drawing.Size(217, 50);
+            this.sidebtnSignature.TabIndex = 9;
+            this.sidebtnSignature.Text = "Report Signatory";
+            this.sidebtnSignature.UseVisualStyleBackColor = false;
+            this.sidebtnSignature.Click += new System.EventHandler(this.sidebtnSignature_Click);
             // 
-            // btnexit
+            // sidebtnMaping
             // 
-            this.btnexit.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.btnexit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnexit.FlatAppearance.BorderSize = 0;
-            this.btnexit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnexit.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnexit.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnexit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexit.Location = new System.Drawing.Point(0, 0);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnexit.Size = new System.Drawing.Size(217, 45);
-            this.btnexit.TabIndex = 0;
-            this.btnexit.Text = "Exit";
-            this.btnexit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexit.UseVisualStyleBackColor = false;
-            this.btnexit.Click += new System.EventHandler(this.btnexit_Click);
+            this.sidebtnMaping.BackColor = System.Drawing.Color.Lavender;
+            this.sidebtnMaping.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidebtnMaping.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidebtnMaping.FlatAppearance.BorderSize = 2;
+            this.sidebtnMaping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sidebtnMaping.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sidebtnMaping.Location = new System.Drawing.Point(0, 100);
+            this.sidebtnMaping.Margin = new System.Windows.Forms.Padding(0);
+            this.sidebtnMaping.Name = "sidebtnMaping";
+            this.sidebtnMaping.Size = new System.Drawing.Size(217, 50);
+            this.sidebtnMaping.TabIndex = 8;
+            this.sidebtnMaping.Text = "Test Mapping";
+            this.sidebtnMaping.UseVisualStyleBackColor = false;
+            this.sidebtnMaping.Click += new System.EventHandler(this.sidebtnMaping_Click);
             // 
-            // btnsinatory
+            // sidebtnData
             // 
-            this.btnsinatory.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnsinatory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnsinatory.FlatAppearance.BorderSize = 0;
-            this.btnsinatory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsinatory.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsinatory.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnsinatory.Location = new System.Drawing.Point(0, 245);
-            this.btnsinatory.Name = "btnsinatory";
-            this.btnsinatory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnsinatory.Size = new System.Drawing.Size(217, 45);
-            this.btnsinatory.TabIndex = 9;
-            this.btnsinatory.Text = "Report Signatory";
-            this.btnsinatory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsinatory.UseVisualStyleBackColor = false;
-            this.btnsinatory.Click += new System.EventHandler(this.btnsinatory_Click);
+            this.sidebtnData.BackColor = System.Drawing.Color.Lavender;
+            this.sidebtnData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidebtnData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidebtnData.FlatAppearance.BorderSize = 2;
+            this.sidebtnData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sidebtnData.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sidebtnData.Location = new System.Drawing.Point(0, 50);
+            this.sidebtnData.Margin = new System.Windows.Forms.Padding(0);
+            this.sidebtnData.Name = "sidebtnData";
+            this.sidebtnData.Size = new System.Drawing.Size(217, 50);
+            this.sidebtnData.TabIndex = 7;
+            this.sidebtnData.Text = "Data Transfer";
+            this.sidebtnData.UseVisualStyleBackColor = false;
+            this.sidebtnData.Click += new System.EventHandler(this.sidebtnData_Click);
             // 
-            // btnTest
+            // sidebtnHematology
             // 
-            this.btnTest.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnTest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTest.FlatAppearance.BorderSize = 0;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.ForeColor = System.Drawing.Color.MintCream;
-            this.btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTest.Location = new System.Drawing.Point(0, 200);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnTest.Size = new System.Drawing.Size(217, 45);
-            this.btnTest.TabIndex = 8;
-            this.btnTest.Text = "Test Maping";
-            this.btnTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTest.UseVisualStyleBackColor = false;
-            this.btnTest.Click += new System.EventHandler(this.button4_Click);
+            this.sidebtnHematology.BackColor = System.Drawing.Color.Lavender;
+            this.sidebtnHematology.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidebtnHematology.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidebtnHematology.FlatAppearance.BorderSize = 2;
+            this.sidebtnHematology.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sidebtnHematology.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sidebtnHematology.Location = new System.Drawing.Point(0, 0);
+            this.sidebtnHematology.Margin = new System.Windows.Forms.Padding(0);
+            this.sidebtnHematology.Name = "sidebtnHematology";
+            this.sidebtnHematology.Size = new System.Drawing.Size(217, 50);
+            this.sidebtnHematology.TabIndex = 6;
+            this.sidebtnHematology.Text = "Hematology Reporting";
+            this.sidebtnHematology.UseVisualStyleBackColor = false;
+            this.sidebtnHematology.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // btnDataTransfer
+            // panel1
             // 
-            this.btnDataTransfer.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnDataTransfer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDataTransfer.FlatAppearance.BorderSize = 0;
-            this.btnDataTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDataTransfer.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDataTransfer.ForeColor = System.Drawing.Color.MintCream;
-            this.btnDataTransfer.Location = new System.Drawing.Point(0, 155);
-            this.btnDataTransfer.Name = "btnDataTransfer";
-            this.btnDataTransfer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnDataTransfer.Size = new System.Drawing.Size(217, 45);
-            this.btnDataTransfer.TabIndex = 6;
-            this.btnDataTransfer.Text = "Data Transfer";
-            this.btnDataTransfer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDataTransfer.UseVisualStyleBackColor = false;
-            this.btnDataTransfer.Click += new System.EventHandler(this.btnDataTransfer_Click_1);
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(217, 200);
+            this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // btnhematology3
+            // btnExit
             // 
-            this.btnhematology3.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnhematology3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnhematology3.FlatAppearance.BorderSize = 0;
-            this.btnhematology3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhematology3.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhematology3.ForeColor = System.Drawing.Color.MintCream;
-            this.btnhematology3.Location = new System.Drawing.Point(0, 110);
-            this.btnhematology3.Margin = new System.Windows.Forms.Padding(0);
-            this.btnhematology3.Name = "btnhematology3";
-            this.btnhematology3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnhematology3.Size = new System.Drawing.Size(217, 45);
-            this.btnhematology3.TabIndex = 1;
-            this.btnhematology3.Text = "Hematology 3 Part";
-            this.btnhematology3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhematology3.UseVisualStyleBackColor = false;
-            this.btnhematology3.Click += new System.EventHandler(this.btnhematology3_Click);
-            // 
-            // panellogo
-            // 
-            this.panellogo.Controls.Add(this.pictureBox1);
-            this.panellogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panellogo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panellogo.Location = new System.Drawing.Point(0, 0);
-            this.panellogo.Name = "panellogo";
-            this.panellogo.Size = new System.Drawing.Size(217, 110);
-            this.panellogo.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(217, 110);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.btnExit.BackColor = System.Drawing.Color.Lavender;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnExit.FlatAppearance.BorderSize = 2;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.Location = new System.Drawing.Point(0, 699);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(217, 50);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Rajnigondha
             // 
@@ -362,10 +335,7 @@ namespace Rajni
             this.panelfill.ResumeLayout(false);
             this.panelchildForm.ResumeLayout(false);
             this.panelSideMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelbtm.ResumeLayout(false);
-            this.panellogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -373,23 +343,21 @@ namespace Rajni
         #endregion
 
         private System.Windows.Forms.Panel panelSideMenu;
-        private System.Windows.Forms.Button btndocsetup;
-        private System.Windows.Forms.Panel panelbtm;
-        private System.Windows.Forms.Button btnexit;
-        private System.Windows.Forms.Button btnsinatory;
-        private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.Button btnDataTransfer;
-        private System.Windows.Forms.Button btnhematology3;
-        private System.Windows.Forms.Panel panellogo;
         private System.Windows.Forms.Panel panelfill;
         private System.Windows.Forms.TableLayoutPanel panelchildForm;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button boxbtnData;
         private System.Windows.Forms.Button boxbtnreport;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button boxbtnMaping;
         private System.Windows.Forms.Button boxbtndoc;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button boxbtnSignature;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button sidebtnDoctor;
+        private System.Windows.Forms.Button sidebtnSignature;
+        private System.Windows.Forms.Button sidebtnMaping;
+        private System.Windows.Forms.Button sidebtnData;
+        private System.Windows.Forms.Button sidebtnHematology;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

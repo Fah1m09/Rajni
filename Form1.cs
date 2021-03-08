@@ -23,9 +23,10 @@ namespace Rajni
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Project\\Rajni\\HemaDB.mdf;Integrated Security=True");
         string[] n = new string[300]; string[] p = new string[300]; string[] q = new string[150]; int[] knwbc = new int[300]; int[] knrbc = new int[300]; int[] knplt = new int[150];
         string[] str = { "WBC", "LY%", "MI%", "GR%", "RBC", "HGB", "HCT", "MCV", "MCH", "MCHC", "RDW_CV", "RDW_SD", "PLT", "MPV", "PDW", "PCT", "P_LCR", "P_LCC" };
-        float[] vari = new float[18]; int[] id = new int[2];
-        int[] store = new int[100]; int st;
-
+        float[] vari = new float[18]; string[] id = new string[2]; int count = 0;
+        int[] store = new int[100]; 
+        DataSet ds = new DataSet();
+        string[] doub = new string[100];
 
         private void btnClose_Click_1(object sender, EventArgs e)
         {
@@ -81,26 +82,30 @@ namespace Rajni
             this.Invoke(new EventHandler(ShowData));
         }
         public void ShowData(object sender, EventArgs e)
-        {                     
-            tBoxDataIN.Text+= dataIN;
-            string dataparse = dataIN;
-         
+        {
+            tBoxDataIN.Text += dataIN;
+            string dataparse = tBoxDataIN.Text;
             string[] words = dataparse.Split('\n');
+          
             foreach (var word in words)
             {
                 if (word.Contains("PID"))
                 {
                     string[] tup = word.Split('|');
-                    id[0] = int.Parse(tup[2]);
-                    store[st] = id[0];
+                    id[0] = tup[2];
+                   
+                                    
+                    count = 1;
                 }
-                st = st + 1;
+                
                 if (word.Contains("OBR"))
                 {
                     string[] tup = word.Split('|');
-                    id[1] = int.Parse(tup[3]);
+                    id[1] = tup[3];
+                    count = 2; 
                 }
-                for (int i = 0; i < str.Length; i++)
+
+                for (int i = 0; i < 18; i++)
                 {
                     if (word.Contains(str[i]))
                     {
@@ -108,7 +113,9 @@ namespace Rajni
                         if (tup[1] == "1")
                         {
                             vari[i] = float.Parse(tup[5]);
+                            
                         }
+                        count = 4;
                     }
                     if (word.Contains("WBCHistogram") && word.Contains("ED"))
                     {
@@ -124,6 +131,7 @@ namespace Rajni
                                 knwbc[k] = Convert.ToInt32(n[k], 16);
                             }
                         }
+                        count = 5;
                     }
                     if (word.Contains("RBCHistogram") && word.Contains("ED"))
                     {
@@ -132,12 +140,13 @@ namespace Rajni
                         if (tup[5] != "")
                         {
                             string[] ht = tup[5].Split('^');
-                            for (int s = 20; s < 300; s += 2)
+                            for (int s = 20; s < 280; s += 2)
                             {
                                 n[s] = ht[4][s] + "" + ht[4][s + 1];
                                 knrbc[s] = (Convert.ToInt32(n[s], 16));
                             }
                         }
+                        count = 6;
                     }
                     if (word.Contains("PLTHistogram") && word.Contains("ED"))
                     {
@@ -153,68 +162,89 @@ namespace Rajni
                                 knplt[y] = Convert.ToInt32(q[y], 16);
                             }
                         }
-                    }                     
+                        count = 7;
+                    }
+                    tBoxDataIN.Text = "";
                 }               
              }
             int flag = 0;
-            if (flag == 0)
+            if (flag == 0 && count ==7)
             {
-                SqlCommand cmd = new SqlCommand("AddPpT3", con);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd1 = new SqlCommand("SELECT COUNT (pid) FROM PT WHERE pid ='" + id[0] + "' ", con);
                 con.Open();
-                cmd.Parameters.AddWithValue("@pid", id[0]);
-                cmd.Parameters.AddWithValue("@iid", id[1]);
-                cmd.Parameters.AddWithValue("@tdate", DateTime.Now);
-                cmd.Parameters.AddWithValue("@wbc", vari[0] * 1000);
-                cmd.Parameters.AddWithValue("@lymp", vari[1]);
-                cmd.Parameters.AddWithValue("@grp", vari[3]);
-                cmd.Parameters.AddWithValue("@rbc", vari[4]);
-                cmd.Parameters.AddWithValue("@hgb", vari[5]);
-                cmd.Parameters.AddWithValue("@hct", vari[6]);
-                cmd.Parameters.AddWithValue("@mcv", vari[7]);
-                cmd.Parameters.AddWithValue("@mch", vari[8]);
-                cmd.Parameters.AddWithValue("@mchc", vari[9]);
-                cmd.Parameters.AddWithValue("@rdw_cv", vari[10]);
-                cmd.Parameters.AddWithValue("@rdw_sd", vari[11]);
-                cmd.Parameters.AddWithValue("@plt", vari[12] * 1000);
-                cmd.Parameters.AddWithValue("@mpv", vari[13]);
-                cmd.Parameters.AddWithValue("@pdw", vari[14]);
-                cmd.Parameters.AddWithValue("@pct", vari[15]);
-                cmd.Parameters.AddWithValue("@p_lcr", vari[16]);
-                cmd.Parameters.AddWithValue("@p_lcc", vari[17]);
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Invalid SQL Operation\n" + ex);
-                }
+                int i = int.Parse(cmd1.ExecuteScalar().ToString());
                 con.Close();
+                if (i > 0)
+                { }
+                else
+                {
+                    SqlCommand cmd = new SqlCommand("AddPpT3", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@pid", id[0]);
+                    cmd.Parameters.AddWithValue("@iid", id[1]);
+                    cmd.Parameters.AddWithValue("@tdate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@wbc", vari[0] * 1000);
+                    cmd.Parameters.AddWithValue("@lymp", vari[1]);
+                    cmd.Parameters.AddWithValue("@grp", vari[3]);
+                    cmd.Parameters.AddWithValue("@rbc", vari[4]);
+                    cmd.Parameters.AddWithValue("@hgb", vari[5]);
+                    cmd.Parameters.AddWithValue("@hct", vari[6]);
+                    cmd.Parameters.AddWithValue("@mcv", vari[7]);
+                    cmd.Parameters.AddWithValue("@mch", vari[8]);
+                    cmd.Parameters.AddWithValue("@mchc", vari[9]);
+                    cmd.Parameters.AddWithValue("@rdw_cv", vari[10]);
+                    cmd.Parameters.AddWithValue("@rdw_sd", vari[11]);
+                    cmd.Parameters.AddWithValue("@plt", vari[12] * 1000);
+                    cmd.Parameters.AddWithValue("@mpv", vari[13]);
+                    cmd.Parameters.AddWithValue("@pdw", vari[14]);
+                    cmd.Parameters.AddWithValue("@pct", vari[15]);
+                    cmd.Parameters.AddWithValue("@p_lcr", vari[16]);
+                    cmd.Parameters.AddWithValue("@p_lcc", vari[17]);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Invalid SQL Operation\n" + ex);
+                    }
+                    con.Close();
+                }
                 flag = 1;
             }
 
-            if (flag == 1)
+             if (flag == 1)
             {
-                SqlCommand cmd2 = new SqlCommand("AddUserInput", con);
-                cmd2.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd1 = new SqlCommand("SELECT COUNT (pid) FROM UserInput WHERE pid ='" + id[0] + "' ", con);
                 con.Open();
-                cmd2.Parameters.AddWithValue("@pid", id[0]);
-                cmd2.Parameters.AddWithValue("@eso", vari[2] * .3);
-                cmd2.Parameters.AddWithValue("@baso", 0);
-                cmd2.Parameters.AddWithValue("@mono", vari[2] * .7);
-                try
-                {
-                    cmd2.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Invalid SQL Operation\n" + ex);
-                }
+                int i = int.Parse(cmd1.ExecuteScalar().ToString());
                 con.Close();
+                if (i > 0)
+                {
+                }
+                else
+                {
+                    SqlCommand cmd2 = new SqlCommand("AddUserInput", con);
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd2.Parameters.AddWithValue("@pid", id[0]);
+                    cmd2.Parameters.AddWithValue("@eso", vari[2] * 0.30);
+                    cmd2.Parameters.AddWithValue("@baso", 0);
+                    cmd2.Parameters.AddWithValue("@mono", vari[2] * 0.70);
+                    try
+                    {
+                        cmd2.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Invalid SQL Operation\n" + ex);
+                    }
+                    con.Close();
+                }                              
                 flag = 2;
             }
-            if (flag == 2)
+             if (flag == 2)
             {
                 for (int k = 14; k < 300; k = k + 2)
                 {
@@ -288,8 +318,7 @@ namespace Rajni
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("ShowP3Data", con);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("SELECT * FROM PT", con);
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);

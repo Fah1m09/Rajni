@@ -27,9 +27,7 @@ namespace Rajni
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("ShowTest", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
+                SqlCommand cmd = new SqlCommand("SELECT * FROM TestMaping", con);
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);
