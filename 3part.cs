@@ -30,7 +30,7 @@ namespace Rajni
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Patient", con);
+                SqlCommand cmd = new SqlCommand("SELECT pid as pid, p_name as name, p_address as address, sex, age_year as year, age_month as month, age_date as date, phone FROM Patient", con);
                 SqlDataAdapter DA = new SqlDataAdapter(cmd);
                 DataSet DS = new DataSet();
                 DA.Fill(DS);
@@ -45,7 +45,7 @@ namespace Rajni
                 }
                 con.Close();
                 dataGridView.DataSource = DS.Tables[0];
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     this.dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }            
@@ -56,7 +56,7 @@ namespace Rajni
             }
             try
             {
-                SqlCommand cmd1 = new SqlCommand("SELECT * FROM PT", con);
+                SqlCommand cmd1 = new SqlCommand("SELECT pid, i_id as iid, tdate, wbc, rbc, hgb, plt  FROM PT", con);
                 SqlDataAdapter DA1 = new SqlDataAdapter(cmd1);
                 DataSet DS1 = new DataSet();
                 DA1.Fill(DS1);
@@ -71,10 +71,10 @@ namespace Rajni
                 }
                 con.Close();
 
-                dataGridViewdt.DataSource = DS1.Tables[0];
-                for (int i = 0; i < 20; i++)
+                dateFrom.DataSource = DS1.Tables[0];
+                for (int i = 0; i < 7; i++)
                 {
-                    this.dataGridViewdt.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    this.dateFrom.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)
@@ -83,206 +83,11 @@ namespace Rajni
             }           
         }
 
-        private void btnGo_Click(object sender, EventArgs e)
+        private void tboxDocid_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("select * from PT where tdate between @datefrom and @dateto", con);
-                cmd.Parameters.AddWithValue("@datefrom", dateFrom.Text);
-                cmd.Parameters.AddWithValue("@dateto", dateTo.Text);
-
-                SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                DataSet DS = new DataSet();
-                DA.Fill(DS);
-
-                con.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Invalid SQL Operation\n" + ex);
-                }
-                con.Close();
-
-                dataGridViewdt.DataSource = DS.Tables[0];
-                for (int i = 0; i < 9; i++)
-                {
-                    this.dataGridViewdt.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("" + ex);
-            }
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (tboxPid.Text != "")
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("SearchPatient", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@pid", tboxPid.Text);
-                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
-                    DataSet DS = new DataSet();
-                    DA.Fill(DS);
-                    con.Open();
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Invalid SQL Operation\n" + ex);
-                    }
-                    con.Close();
-                    dataGridView.DataSource = DS.Tables[0];
-                    for (int i = 0; i < 9; i++)
-                    {
-                        this.dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("" + ex);
-                }
-                if (tboxPid.Text != "")
-                {
-                    SqlCommand cmd1 = new SqlCommand("Select wbc, lymp, grp, rbc, hgb, hct, mcv, mch, mchc, rdw_cv, rdw_sd, plt, mpv, pct, pdw, p_lcc, p_lcr from PT where pid = @pid", con);
-                    cmd1.Parameters.AddWithValue("@pid", tboxPid.Text);
-                    con.Open();
-                    SqlDataReader da = cmd1.ExecuteReader();
-                    while (da.Read())
-                    {
-                        tboxWbc.Text = da.GetValue(0).ToString();
-                        tboxLyp.Text = da.GetValue(1).ToString();tboxGrp.Text = da.GetValue(2).ToString();
-                        tboxRbc.Text = da.GetValue(3).ToString(); tboxHgb.Text = da.GetValue(4).ToString();
-                        tboxHct.Text = da.GetValue(5).ToString();tboxMcv.Text = da.GetValue(6).ToString();
-                        tboxMch.Text = da.GetValue(7).ToString();tboxMchc.Text = da.GetValue(8).ToString();
-                        tboxRdw_cv.Text = da.GetValue(9).ToString();tboxRdw_sd.Text = da.GetValue(10).ToString();
-                        tboxPlt.Text = da.GetValue(11).ToString();tboxMpv.Text = da.GetValue(12).ToString();
-                        tboxPct.Text = da.GetValue(13).ToString(); tboxPdw.Text = da.GetValue(14).ToString();
-                        tboxP_lcc.Text = da.GetValue(15).ToString(); tboxP_lcr.Text = da.GetValue(16).ToString();                        
-                    }
-                    con.Close();
-                    int flag = 1;
-                    if (flag == 1)
-                    {
-                        SqlCommand cmd2 = new SqlCommand("Select esr, mono, eso, baso, bt, ct from UserInput where pid = @pid", con);
-
-                        cmd2.Parameters.AddWithValue("@pid", tboxPid.Text);
-                        con.Open();
-                        SqlDataReader da1 = cmd2.ExecuteReader();
-                        while (da1.Read())
-                        {
-                            tboxEsr.Text = da1.GetValue(0).ToString();tboxMop.Text = da1.GetValue(1).ToString();
-                            tboxEso.Text = da1.GetValue(2).ToString();tboxBaso.Text = da1.GetValue(3).ToString();
-                            tboxBT.Text = da1.GetValue(4).ToString();tboxCT.Text = da1.GetValue(5).ToString();
-                        }
-                        con.Close();
-                        flag = 0;
-                    }
-                }
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Insert valid Pid");
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (tboxPid.Text != "" && tboxPname.Text != "")
-            {
-                SqlCommand cmd = new SqlCommand("AddPatient", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@pid", tboxPid.Text);
-                cmd.Parameters.AddWithValue("@p_name", tboxPname.Text);
-                cmd.Parameters.AddWithValue("@age_date", tboxDate.Text);
-                cmd.Parameters.AddWithValue("@age_month", tboxMonth.Text);
-                cmd.Parameters.AddWithValue("@age_year", tboxYear.Text);
-                cmd.Parameters.AddWithValue("@sex", cboxSex.Text);
-                cmd.Parameters.AddWithValue("@phone", tboxPhone.Text);
-                cmd.Parameters.AddWithValue("@p_address", tboxAddress.Text);
-                cmd.Parameters.AddWithValue("@bed_no", tboxBedno.Text);
-                con.Open();
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Invalid SQL Operation\n " + ex);
-                }
-                con.Close();
-
-                refresh_DataGridView();
-                tboxPid.Text = ""; tboxPname.Text = ""; tboxDate.Text = ""; tboxMonth.Text = ""; tboxYear.Text = "";
-                cboxSex.Text = ""; tboxPhone.Text = ""; tboxBedno.Text = ""; tboxAddress.Text = "";
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Insert Patient Details");
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (tboxPid.Text != "")
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("Delete from Patient where pid = @pid", con);
-                    cmd.Parameters.AddWithValue("@pid", tboxPid.Text);
-                    con.Open();
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Invalid SQL Operation\n " + ex);
-                    }
-                    con.Close();
-                    refresh_DataGridView();
-                    tboxPid.Text = "";
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("" + ex);
-                }
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Insert valid Pid to delete Patient Record");
-            }
-        }
-
-        private void btnParamUpdate_Click(object sender, EventArgs e)
-        {
-            if (tboxEsr.Text != "" && tboxWbc.Text != "" && tboxTotal.Text == "100")
-            {
-                SqlCommand cmd1 = new SqlCommand("UpdateUserinput", con);
-                cmd1.CommandType = CommandType.StoredProcedure;
-                int key = 0;
-                cmd1.Parameters.AddWithValue("@pid", tboxPid.Text);
-                cmd1.Parameters.AddWithValue("@esr", tboxEsr.Text);
-                cmd1.Parameters.AddWithValue("@eso", tboxEso.Text);
-                cmd1.Parameters.AddWithValue("@baso", tboxBaso.Text);
-                cmd1.Parameters.AddWithValue("@mono", tboxMop.Text);
-                cmd1.Parameters.AddWithValue("@bt", tboxBT.Text);
-                cmd1.Parameters.AddWithValue("@ct", tboxCT.Text);
-                float tce, t;
-                t = float.Parse(tboxEso.Text);
-                tce = float.Parse(tboxWbc.Text) * t / 100;
-                cmd1.Parameters.AddWithValue("@tce", tce);
-                if (key == 0)
-                {
+            try {
+                SqlCommand cmd1 = new SqlCommand("SELECT Doc_Name FROM Doctor WHERE Doc_Id = @did ", con);
+                cmd1.Parameters.AddWithValue("@did", tboxDocid.Text);            
                     con.Open();
                     try
                     {
@@ -292,52 +97,10 @@ namespace Rajni
                     {
                         MessageBox.Show("Invalid SQL Operation\n " + ex);
                     }
-                    con.Close();
-                    key = 1;
-                }
-                SqlCommand cmd2 = new SqlCommand("UpdatePT", con);
-                cmd2.CommandType = CommandType.StoredProcedure;
-                cmd2.Parameters.AddWithValue("@pid", tboxPid.Text);
-                cmd2.Parameters.AddWithValue("@lyp", tboxLyp.Text);
-                cmd2.Parameters.AddWithValue("@wbc", tboxWbc.Text);
-                cmd2.Parameters.AddWithValue("@grp", tboxGrp.Text);
-                cmd2.Parameters.AddWithValue("@rbc", tboxRbc.Text);
-                cmd2.Parameters.AddWithValue("@hct", tboxHct.Text);
-                cmd2.Parameters.AddWithValue("@mcv", tboxMcv.Text);
-                cmd2.Parameters.AddWithValue("@mch", tboxMch.Text);
-                cmd2.Parameters.AddWithValue("@mchc", tboxMchc.Text);
-                cmd2.Parameters.AddWithValue("@rdw_cv", tboxRdw_cv.Text);
-                cmd2.Parameters.AddWithValue("@rdw_sd", rdw_sd.Text);
-                cmd2.Parameters.AddWithValue("@hgb", tboxHgb.Text);
-                cmd2.Parameters.AddWithValue("@plt", tboxPlt.Text);
-                cmd2.Parameters.AddWithValue("@mpv", tboxMpv.Text);
-                cmd2.Parameters.AddWithValue("@pct", tboxPct.Text);
-                cmd2.Parameters.AddWithValue("@pdw", tboxPdw.Text);
-                cmd2.Parameters.AddWithValue("@p_lcc", tboxP_lcc.Text);
-                cmd2.Parameters.AddWithValue("@p_lcr", tboxP_lcr.Text);
-                if (key == 1)
-                {
-                    con.Open();
-                    try
-                    {
-                        cmd2.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Invalid SQL Operation\n " + ex);
-                    }
-                    con.Close();
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Total must be 100");
-                }
-                refresh_DataGridView();
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Insert a Pid and press search");
-            }
+                    con.Close();                 
+                }                     
+            catch
+            {}
         }
 
         private void Print_Click(object sender, EventArgs e)
@@ -345,7 +108,7 @@ namespace Rajni
             if (tboxPid.Text != "" && tboxSigid.Text != "" && tboxDocid.Text != "")
             {
                 con.Open();
-                SqlCommand cmd1 = new SqlCommand("SearchPatient", con); 
+                SqlCommand cmd1 = new SqlCommand("SearchPatient", con);
                 cmd1.CommandType = CommandType.StoredProcedure;
                 cmd1.Parameters.AddWithValue("@pid", tboxPid.Text);
 
@@ -452,6 +215,271 @@ namespace Rajni
             }
         }
 
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from PT where tdate between @datefrom and @dateto", con);
+                cmd.Parameters.AddWithValue("@datefrom", dateFrom.Text);
+                cmd.Parameters.AddWithValue("@dateto", dateTo.Text);
+
+                SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                DataSet DS = new DataSet();
+                DA.Fill(DS);
+
+                con.Open();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Invalid SQL Operation\n" + ex);
+                }
+                con.Close();
+
+                dateFrom.DataSource = DS.Tables[0];
+                for (int i = 0; i < 9; i++)
+                {
+                    this.dateFrom.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (tboxPid.Text != "")
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("SearchPatient", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@pid", tboxPid.Text);
+                    SqlDataAdapter DA = new SqlDataAdapter(cmd);
+                    DataSet DS = new DataSet();
+                    DA.Fill(DS);
+                    con.Open();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Invalid SQL Operation\n" + ex);
+                    }
+                    con.Close();
+                    dataGridView.DataSource = DS.Tables[0];
+                    for (int i = 0; i < 9; i++)
+                    {
+                        this.dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+                }
+                if (tboxPid.Text != "")
+                {
+                    SqlCommand cmd1 = new SqlCommand("Select wbc, lymp, grp, rbc, hgb, hct, mcv, mch, mchc, rdw_cv, rdw_sd, plt, mpv, pct, pdw, p_lcc, p_lcr from PT where pid = @pid", con);
+                    cmd1.Parameters.AddWithValue("@pid", tboxPid.Text);
+                    con.Open();
+                    SqlDataReader da = cmd1.ExecuteReader();
+                    while (da.Read())
+                    {
+                        tboxWbc.Text = da.GetValue(0).ToString();
+                        tboxLyp.Text = da.GetValue(1).ToString(); tboxGrp.Text = da.GetValue(2).ToString();
+                        tboxRbc.Text = da.GetValue(3).ToString(); tboxHgb.Text = da.GetValue(4).ToString();
+                        tboxHct.Text = da.GetValue(5).ToString(); tboxMcv.Text = da.GetValue(6).ToString();
+                        tboxMch.Text = da.GetValue(7).ToString(); tboxMchc.Text = da.GetValue(8).ToString();
+                        tboxRdw_cv.Text = da.GetValue(9).ToString(); rdw_sd.Text = da.GetValue(10).ToString();
+                        tboxPlt.Text = da.GetValue(11).ToString(); tboxMpv.Text = da.GetValue(12).ToString();
+                        tboxPct.Text = da.GetValue(13).ToString(); tboxPdw.Text = da.GetValue(14).ToString();
+                        tboxP_lcc.Text = da.GetValue(15).ToString(); tboxP_lcr.Text = da.GetValue(16).ToString();
+                    }
+                    con.Close();
+                    int flag = 1;
+                    if (flag == 1)
+                    {
+                        SqlCommand cmd2 = new SqlCommand("Select esr, mono, eso, baso, bt, ct, mp, blast from UserInput where pid = @pid", con);
+
+                        cmd2.Parameters.AddWithValue("@pid", tboxPid.Text);
+                        con.Open();
+                        SqlDataReader da1 = cmd2.ExecuteReader();
+                        while (da1.Read())
+                        {
+                            tboxEsr.Text = da1.GetValue(0).ToString(); tboxMop.Text = da1.GetValue(1).ToString();
+                            tboxEso.Text = da1.GetValue(2).ToString(); tboxBaso.Text = da1.GetValue(3).ToString();
+                            tboxBT.Text = da1.GetValue(4).ToString(); tboxCT.Text = da1.GetValue(5).ToString();
+                            tboxMp.Text = da1.GetValue(6).ToString(); tboxBlast.Text = da1.GetValue(7).ToString();
+                        }
+                        con.Close();
+                        flag = 0;
+                    }
+                }
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Insert valid Pid");
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (tboxPid.Text != "" && tboxPname.Text != "")
+            {
+                SqlCommand cmd = new SqlCommand("AddPatient", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@pid", tboxPid.Text);
+                cmd.Parameters.AddWithValue("@p_name", tboxPname.Text);
+                cmd.Parameters.AddWithValue("@age_date", tboxDate.Text);
+                cmd.Parameters.AddWithValue("@age_month", tboxMonth.Text);
+                cmd.Parameters.AddWithValue("@age_year", tboxYear.Text);
+                cmd.Parameters.AddWithValue("@sex", cboxSex.Text);
+                cmd.Parameters.AddWithValue("@phone", tboxPhone.Text);
+                cmd.Parameters.AddWithValue("@p_address", tboxAddress.Text);
+                cmd.Parameters.AddWithValue("@bed_no", tboxBedno.Text);
+                con.Open();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Invalid SQL Operation\n " + ex);
+                }
+                con.Close();
+
+                refresh_DataGridView();
+                tboxPid.Text = ""; tboxPname.Text = ""; tboxDate.Text = ""; tboxMonth.Text = ""; tboxYear.Text = "";
+                cboxSex.Text = ""; tboxPhone.Text = ""; tboxBedno.Text = ""; tboxAddress.Text = "";
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Insert Patient Details");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (tboxPid.Text != "")
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("Delete from Patient where pid = @pid", con);
+                    cmd.Parameters.AddWithValue("@pid", tboxPid.Text);
+                    con.Open();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Invalid SQL Operation\n " + ex);
+                    }
+                    con.Close();
+                    refresh_DataGridView();
+                    tboxPid.Text = "";
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+                }
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Insert valid Pid to delete Patient Record");
+            }
+        }
+
+        private void btnParamUpdate_Click(object sender, EventArgs e)
+        {
+            if (tboxEsr.Text != "" && tboxWbc.Text != "" )
+            {
+                if (tboxTotal.Text == "100")
+                {
+                    SqlCommand cmd1 = new SqlCommand("UpdateUserinput", con);
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    int key = 0;
+                    cmd1.Parameters.AddWithValue("@pid", tboxPid.Text);
+                    cmd1.Parameters.AddWithValue("@esr", tboxEsr.Text);
+                    cmd1.Parameters.AddWithValue("@eso", tboxEso.Text);
+                    cmd1.Parameters.AddWithValue("@baso", tboxBaso.Text);
+                    cmd1.Parameters.AddWithValue("@mono", tboxMop.Text);
+                    cmd1.Parameters.AddWithValue("@bt", tboxBT.Text);
+                    cmd1.Parameters.AddWithValue("@ct", tboxCT.Text);
+                    cmd1.Parameters.AddWithValue("@mp", tboxMp.Text);
+                    cmd1.Parameters.AddWithValue("@blast", tboxBlast.Text);
+                    float tce, t;
+                    t = float.Parse(tboxEso.Text);
+                    tce = float.Parse(tboxWbc.Text) * t / 100;
+                    cmd1.Parameters.AddWithValue("@tce", tce);
+                    if (key == 0)
+                    {
+                        con.Open();
+                        try
+                        {
+                            cmd1.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Invalid SQL Operation\n " + ex);
+                        }
+                        con.Close();
+                        key = 1;
+                    }
+                    SqlCommand cmd2 = new SqlCommand("UpdatePT", con);
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.Parameters.AddWithValue("@pid", tboxPid.Text);
+                    cmd2.Parameters.AddWithValue("@lyp", tboxLyp.Text);
+                    cmd2.Parameters.AddWithValue("@wbc", tboxWbc.Text);
+                    cmd2.Parameters.AddWithValue("@grp", tboxGrp.Text);
+                    cmd2.Parameters.AddWithValue("@rbc", tboxRbc.Text);
+                    cmd2.Parameters.AddWithValue("@hct", tboxHct.Text);
+                    cmd2.Parameters.AddWithValue("@mcv", tboxMcv.Text);
+                    cmd2.Parameters.AddWithValue("@mch", tboxMch.Text);
+                    cmd2.Parameters.AddWithValue("@mchc", tboxMchc.Text);
+                    cmd2.Parameters.AddWithValue("@rdw_cv", tboxRdw_cv.Text);
+                    cmd2.Parameters.AddWithValue("@rdw_sd", rdw_sd.Text);
+                    cmd2.Parameters.AddWithValue("@hgb", tboxHgb.Text);
+                    cmd2.Parameters.AddWithValue("@plt", tboxPlt.Text);
+                    cmd2.Parameters.AddWithValue("@mpv", tboxMpv.Text);
+                    cmd2.Parameters.AddWithValue("@pct", tboxPct.Text);
+                    cmd2.Parameters.AddWithValue("@pdw", tboxPdw.Text);
+                    cmd2.Parameters.AddWithValue("@p_lcc", tboxP_lcc.Text);
+                    cmd2.Parameters.AddWithValue("@p_lcr", tboxP_lcr.Text);
+                    if (key == 1)
+                    {
+                        con.Open();
+                        try
+                        {
+                            cmd2.ExecuteNonQuery();
+                            System.Windows.Forms.MessageBox.Show("Test Results are updated");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Invalid SQL Operation\n " + ex);
+                        }
+                        con.Close();
+                    }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("Total must be 100");
+                    }
+                    refresh_DataGridView();
+                }
+            }      
+                
+        else
+        {
+            System.Windows.Forms.MessageBox.Show("Insert a Pid and press search");
+        }
+        }
+
         private void tboxMop_TextChanged(object sender, EventArgs e)
         {
             try { tboxTotal.Text = (float.Parse(tboxLyp.Text) + float.Parse(tboxGrp.Text) + float.Parse(tboxMop.Text) + float.Parse(tboxBaso.Text) + float.Parse(tboxEso.Text)).ToString(); }
@@ -460,17 +488,10 @@ namespace Rajni
 
         private void tboxLyp_TextChanged(object sender, EventArgs e)
         {
-
             try { tboxTotal.Text = (float.Parse(tboxLyp.Text) + float.Parse(tboxGrp.Text) + float.Parse(tboxMop.Text) + float.Parse(tboxBaso.Text) + float.Parse(tboxEso.Text)).ToString(); }
             catch { }
         }
 
-        private void tboxGrp_TextChanged(object sender, EventArgs e)
-        {
-
-            try { tboxTotal.Text = (float.Parse(tboxLyp.Text) + float.Parse(tboxGrp.Text) + float.Parse(tboxMop.Text) + float.Parse(tboxBaso.Text) + float.Parse(tboxEso.Text)).ToString(); }
-            catch { }
-        }
         private void tboxEso_TextChanged(object sender, EventArgs e)
         {
             try { tboxTotal.Text = (float.Parse(tboxLyp.Text) + float.Parse(tboxGrp.Text) + float.Parse(tboxMop.Text) + float.Parse(tboxBaso.Text) + float.Parse(tboxEso.Text)).ToString(); }
@@ -483,34 +504,10 @@ namespace Rajni
             catch { }
         }
 
-        private void tboxDocid_TextChanged(object sender, EventArgs e)
+        private void tboxGrp_TextChanged(object sender, EventArgs e)
         {
-            try {
-                SqlCommand cmd1 = new SqlCommand("SELECT Doc_Name FROM Doctor WHERE Doc_Id = @did ", con);
-                cmd1.Parameters.AddWithValue("@did", tboxDocid.Text);            
-                    con.Open();
-                    try
-                    {
-                        cmd1.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Invalid SQL Operation\n " + ex);
-                    }
-                    con.Close();                 
-                }                     
-            catch
-            {}
-        }
-
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            try { tboxTotal.Text = (float.Parse(tboxLyp.Text) + float.Parse(tboxGrp.Text) + float.Parse(tboxMop.Text) + float.Parse(tboxBaso.Text) + float.Parse(tboxEso.Text)).ToString(); }
+            catch { }
         }
     }
 }

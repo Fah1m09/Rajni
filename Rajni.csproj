@@ -98,6 +98,12 @@
     <Compile Include="3part.Designer.cs">
       <DependentUpon>3part.cs</DependentUpon>
     </Compile>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HemaDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HemaDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HemaDBDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Rajnigondha.cs">
       <SubType>Form</SubType>
@@ -138,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="3part.resx">
       <DependentUpon>3part.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -175,6 +189,17 @@
     </None>
     <None Include="HemaDBDataSet.xss">
       <DependentUpon>HemaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HemaDBDataSet1.xsc">
+      <DependentUpon>HemaDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HemaDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HemaDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HemaDBDataSet1.xss">
+      <DependentUpon>HemaDBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

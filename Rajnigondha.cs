@@ -89,14 +89,9 @@ namespace Rajni
             openchildForm(new TestMaping());
         }
 
-        private void panelchildForm_Paint(object sender, PaintEventArgs e)
+        private void sidebtnAbout_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            openchildForm(new About());
         }
     }
 }

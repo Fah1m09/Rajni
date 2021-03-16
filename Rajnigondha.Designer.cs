@@ -32,13 +32,16 @@ namespace Rajni
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rajnigondha));
             this.panelfill = new System.Windows.Forms.Panel();
             this.panelchildForm = new System.Windows.Forms.TableLayoutPanel();
-            this.boxbtnData = new System.Windows.Forms.Button();
             this.boxbtnreport = new System.Windows.Forms.Button();
-            this.boxbtnMaping = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.boxbtndoc = new System.Windows.Forms.Button();
+            this.boxbtnData = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.boxbtnMaping = new System.Windows.Forms.Button();
             this.boxbtnSignature = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.sidebtnAbout = new System.Windows.Forms.Button();
             this.sidebtnDoctor = new System.Windows.Forms.Button();
             this.sidebtnSignature = new System.Windows.Forms.Button();
             this.sidebtnMaping = new System.Windows.Forms.Button();
@@ -48,6 +51,8 @@ namespace Rajni
             this.btnExit = new System.Windows.Forms.Button();
             this.panelfill.SuspendLayout();
             this.panelchildForm.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,16 +71,14 @@ namespace Rajni
             this.panelchildForm.BackColor = System.Drawing.Color.Transparent;
             this.panelchildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelchildForm.BackgroundImage")));
             this.panelchildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelchildForm.ColumnCount = 4;
+            this.panelchildForm.ColumnCount = 3;
             this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.panelchildForm.Controls.Add(this.boxbtnData, 2, 1);
-            this.panelchildForm.Controls.Add(this.boxbtnreport, 2, 2);
-            this.panelchildForm.Controls.Add(this.boxbtnMaping, 2, 3);
-            this.panelchildForm.Controls.Add(this.boxbtndoc, 1, 1);
-            this.panelchildForm.Controls.Add(this.boxbtnSignature, 1, 3);
+            this.panelchildForm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.panelchildForm.Controls.Add(this.boxbtnreport, 1, 2);
+            this.panelchildForm.Controls.Add(this.tableLayoutPanel1, 1, 1);
+            this.panelchildForm.Controls.Add(this.tableLayoutPanel2, 1, 3);
             this.panelchildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelchildForm.Location = new System.Drawing.Point(0, 0);
             this.panelchildForm.Margin = new System.Windows.Forms.Padding(0);
@@ -88,24 +91,6 @@ namespace Rajni
             this.panelchildForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.91667F));
             this.panelchildForm.Size = new System.Drawing.Size(1067, 749);
             this.panelchildForm.TabIndex = 3;
-            this.panelchildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelchildForm_Paint);
-            // 
-            // boxbtnData
-            // 
-            this.boxbtnData.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.boxbtnData.BackColor = System.Drawing.Color.Lavender;
-            this.boxbtnData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.boxbtnData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.boxbtnData.FlatAppearance.BorderSize = 2;
-            this.boxbtnData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.boxbtnData.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxbtnData.Location = new System.Drawing.Point(536, 174);
-            this.boxbtnData.Name = "boxbtnData";
-            this.boxbtnData.Size = new System.Drawing.Size(207, 134);
-            this.boxbtnData.TabIndex = 1;
-            this.boxbtnData.Text = "Data Transfer";
-            this.boxbtnData.UseVisualStyleBackColor = false;
-            this.boxbtnData.Click += new System.EventHandler(this.button8_Click);
             // 
             // boxbtnreport
             // 
@@ -117,30 +102,29 @@ namespace Rajni
             this.boxbtnreport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxbtnreport.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxbtnreport.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.boxbtnreport.Location = new System.Drawing.Point(536, 314);
+            this.boxbtnreport.Location = new System.Drawing.Point(326, 317);
+            this.boxbtnreport.Margin = new System.Windows.Forms.Padding(6);
             this.boxbtnreport.Name = "boxbtnreport";
-            this.boxbtnreport.Size = new System.Drawing.Size(207, 118);
+            this.boxbtnreport.Size = new System.Drawing.Size(414, 112);
             this.boxbtnreport.TabIndex = 1;
             this.boxbtnreport.Text = "Hematology Reporting";
             this.boxbtnreport.UseVisualStyleBackColor = false;
             this.boxbtnreport.Click += new System.EventHandler(this.boxbtnreport_Click_1);
             // 
-            // boxbtnMaping
+            // tableLayoutPanel1
             // 
-            this.boxbtnMaping.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.boxbtnMaping.BackColor = System.Drawing.Color.Lavender;
-            this.boxbtnMaping.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.boxbtnMaping.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.boxbtnMaping.FlatAppearance.BorderSize = 2;
-            this.boxbtnMaping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.boxbtnMaping.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxbtnMaping.Location = new System.Drawing.Point(536, 438);
-            this.boxbtnMaping.Name = "boxbtnMaping";
-            this.boxbtnMaping.Size = new System.Drawing.Size(207, 134);
-            this.boxbtnMaping.TabIndex = 7;
-            this.boxbtnMaping.Text = "Test Maping";
-            this.boxbtnMaping.UseVisualStyleBackColor = false;
-            this.boxbtnMaping.Click += new System.EventHandler(this.button10_Click);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.boxbtndoc, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.boxbtnData, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(323, 174);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 134);
+            this.tableLayoutPanel1.TabIndex = 8;
             // 
             // boxbtndoc
             // 
@@ -151,13 +135,62 @@ namespace Rajni
             this.boxbtndoc.FlatAppearance.BorderSize = 2;
             this.boxbtndoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxbtndoc.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxbtndoc.Location = new System.Drawing.Point(323, 174);
+            this.boxbtndoc.Location = new System.Drawing.Point(213, 3);
             this.boxbtndoc.Name = "boxbtndoc";
-            this.boxbtndoc.Size = new System.Drawing.Size(207, 134);
+            this.boxbtndoc.Size = new System.Drawing.Size(204, 128);
             this.boxbtndoc.TabIndex = 2;
             this.boxbtndoc.Text = "Doctor Setup";
             this.boxbtndoc.UseVisualStyleBackColor = false;
             this.boxbtndoc.Click += new System.EventHandler(this.boxbtndoc_Click_1);
+            // 
+            // boxbtnData
+            // 
+            this.boxbtnData.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.boxbtnData.BackColor = System.Drawing.Color.Lavender;
+            this.boxbtnData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxbtnData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxbtnData.FlatAppearance.BorderSize = 2;
+            this.boxbtnData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxbtnData.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxbtnData.Location = new System.Drawing.Point(3, 3);
+            this.boxbtnData.Name = "boxbtnData";
+            this.boxbtnData.Size = new System.Drawing.Size(204, 128);
+            this.boxbtnData.TabIndex = 1;
+            this.boxbtnData.Text = "Data Transfer";
+            this.boxbtnData.UseVisualStyleBackColor = false;
+            this.boxbtnData.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.boxbtnMaping, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.boxbtnSignature, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(323, 438);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(420, 134);
+            this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // boxbtnMaping
+            // 
+            this.boxbtnMaping.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.boxbtnMaping.BackColor = System.Drawing.Color.Lavender;
+            this.boxbtnMaping.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boxbtnMaping.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.boxbtnMaping.FlatAppearance.BorderSize = 2;
+            this.boxbtnMaping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boxbtnMaping.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxbtnMaping.Location = new System.Drawing.Point(213, 3);
+            this.boxbtnMaping.Name = "boxbtnMaping";
+            this.boxbtnMaping.Size = new System.Drawing.Size(204, 128);
+            this.boxbtnMaping.TabIndex = 7;
+            this.boxbtnMaping.Text = "Test Maping";
+            this.boxbtnMaping.UseVisualStyleBackColor = false;
+            this.boxbtnMaping.Click += new System.EventHandler(this.button10_Click);
             // 
             // boxbtnSignature
             // 
@@ -170,9 +203,9 @@ namespace Rajni
             this.boxbtnSignature.FlatAppearance.BorderSize = 2;
             this.boxbtnSignature.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.boxbtnSignature.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxbtnSignature.Location = new System.Drawing.Point(323, 438);
+            this.boxbtnSignature.Location = new System.Drawing.Point(3, 3);
             this.boxbtnSignature.Name = "boxbtnSignature";
-            this.boxbtnSignature.Size = new System.Drawing.Size(207, 134);
+            this.boxbtnSignature.Size = new System.Drawing.Size(204, 128);
             this.boxbtnSignature.TabIndex = 2;
             this.boxbtnSignature.Text = "Report Signatory";
             this.boxbtnSignature.UseVisualStyleBackColor = false;
@@ -195,16 +228,34 @@ namespace Rajni
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.sidebtnAbout);
             this.panel2.Controls.Add(this.sidebtnDoctor);
             this.panel2.Controls.Add(this.sidebtnSignature);
             this.panel2.Controls.Add(this.sidebtnMaping);
             this.panel2.Controls.Add(this.sidebtnData);
             this.panel2.Controls.Add(this.sidebtnHematology);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 200);
+            this.panel2.Location = new System.Drawing.Point(0, 170);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(217, 250);
+            this.panel2.Size = new System.Drawing.Size(217, 300);
             this.panel2.TabIndex = 8;
+            // 
+            // sidebtnAbout
+            // 
+            this.sidebtnAbout.BackColor = System.Drawing.Color.Lavender;
+            this.sidebtnAbout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidebtnAbout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.sidebtnAbout.FlatAppearance.BorderSize = 2;
+            this.sidebtnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sidebtnAbout.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sidebtnAbout.Location = new System.Drawing.Point(0, 250);
+            this.sidebtnAbout.Margin = new System.Windows.Forms.Padding(0);
+            this.sidebtnAbout.Name = "sidebtnAbout";
+            this.sidebtnAbout.Size = new System.Drawing.Size(217, 50);
+            this.sidebtnAbout.TabIndex = 11;
+            this.sidebtnAbout.Text = "About";
+            this.sidebtnAbout.UseVisualStyleBackColor = false;
+            this.sidebtnAbout.Click += new System.EventHandler(this.sidebtnAbout_Click);
             // 
             // sidebtnDoctor
             // 
@@ -297,9 +348,8 @@ namespace Rajni
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(217, 200);
+            this.panel1.Size = new System.Drawing.Size(217, 170);
             this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnExit
             // 
@@ -334,6 +384,8 @@ namespace Rajni
             this.Text = "Rajanigondha";
             this.panelfill.ResumeLayout(false);
             this.panelchildForm.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.panelSideMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -358,6 +410,9 @@ namespace Rajni
         private System.Windows.Forms.Button sidebtnData;
         private System.Windows.Forms.Button sidebtnHematology;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button sidebtnAbout;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
 
