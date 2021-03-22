@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
+﻿using MaterialSkin.Controls;
 using Microsoft.Reporting.WinForms;
-using MaterialSkin;
-using MaterialSkin.Controls;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Rajni
 {
@@ -19,13 +12,13 @@ namespace Rajni
         public part()
         {
             InitializeComponent();
-            refresh_DataGridView();       
+            refresh_DataGridView();
         }
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Project\\Rajni\\HemaDB.mdf;Integrated Security=True");
         private void _3part_Load(object sender, EventArgs e)
         {
             this.reportViewer1.RefreshReport();
-        }         
+        }
         public void refresh_DataGridView()
         {
             try
@@ -48,7 +41,7 @@ namespace Rajni
                 for (int i = 0; i < 8; i++)
                 {
                     this.dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                }            
+                }
             }
             catch (Exception ex)
             {
@@ -80,27 +73,28 @@ namespace Rajni
             catch (Exception ex)
             {
                 MessageBox.Show("" + ex);
-            }           
+            }
         }
 
         private void tboxDocid_TextChanged(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 SqlCommand cmd1 = new SqlCommand("SELECT Doc_Name FROM Doctor WHERE Doc_Id = @did ", con);
-                cmd1.Parameters.AddWithValue("@did", tboxDocid.Text);            
-                    con.Open();
-                    try
-                    {
-                        cmd1.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Invalid SQL Operation\n " + ex);
-                    }
-                    con.Close();                 
-                }                     
+                cmd1.Parameters.AddWithValue("@did", tboxDocid.Text);
+                con.Open();
+                try
+                {
+                    cmd1.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Invalid SQL Operation\n " + ex);
+                }
+                con.Close();
+            }
             catch
-            {}
+            { }
         }
 
         private void Print_Click(object sender, EventArgs e)
@@ -352,6 +346,7 @@ namespace Rajni
                     MessageBox.Show("Invalid SQL Operation\n " + ex);
                 }
                 con.Close();
+                System.Windows.Forms.MessageBox.Show("Patient Data Saved");
 
                 refresh_DataGridView();
                 tboxPid.Text = ""; tboxPname.Text = ""; tboxDate.Text = ""; tboxMonth.Text = ""; tboxYear.Text = "";
@@ -383,6 +378,7 @@ namespace Rajni
                     con.Close();
                     refresh_DataGridView();
                     tboxPid.Text = "";
+                    System.Windows.Forms.MessageBox.Show("Patient Data Deleted Successfully");
 
                 }
                 catch (Exception ex)
@@ -398,7 +394,7 @@ namespace Rajni
 
         private void btnParamUpdate_Click(object sender, EventArgs e)
         {
-            if (tboxEsr.Text != "" && tboxWbc.Text != "" )
+            if (tboxEsr.Text != "" && tboxWbc.Text != "")
             {
                 if (tboxTotal.Text == "100")
                 {
@@ -472,12 +468,12 @@ namespace Rajni
                     }
                     refresh_DataGridView();
                 }
-            }      
-                
-        else
-        {
-            System.Windows.Forms.MessageBox.Show("Insert a Pid and press search");
-        }
+            }
+
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Insert a Pid and press search");
+            }
         }
 
         private void tboxMop_TextChanged(object sender, EventArgs e)

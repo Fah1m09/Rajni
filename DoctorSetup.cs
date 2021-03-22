@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MaterialSkin;
-using MaterialSkin.Controls;
+using System.Windows.Forms;
 
 namespace Rajni
 {
     public partial class DoctorSetup : MaterialForm
     {
-        
+
         public DoctorSetup()
         {
-            InitializeComponent();          
-            
+            InitializeComponent();
+
         }
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Project\\Rajni\\HemaDB.mdf;Integrated Security=True");
-        
+
         private void Form2_Load(object sender, EventArgs e)
         {
             refresh_DataGridView();
@@ -64,7 +57,7 @@ namespace Rajni
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tboxDid.Text != "" && tboxDname.Text != "" && tboxDphone.Text != "" ) 
+            if (tboxDid.Text != "" && tboxDname.Text != "" && tboxDphone.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("AddDoctor", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -88,12 +81,12 @@ namespace Rajni
             else
             {
                 System.Windows.Forms.MessageBox.Show("Insert Doctor ID, Name and Phone Number");
-            }       
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(tboxDid.Text != "" && tboxDphone.Text != "") 
+            if (tboxDid.Text != "" && tboxDphone.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("UpdateDoctor", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -112,12 +105,12 @@ namespace Rajni
                 con.Close();
                 refresh_DataGridView();
                 System.Windows.Forms.MessageBox.Show("Update Successful");
-            }         
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (tboxDid.Text != "") 
+            if (tboxDid.Text != "")
             {
                 try
                 {
@@ -140,7 +133,7 @@ namespace Rajni
                 {
                     MessageBox.Show("" + ex);
                 }
-            }           
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

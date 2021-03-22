@@ -118,19 +118,15 @@ namespace Rajni
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanelPatientData = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tboxAddress = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearch = new MaterialSkin.Controls.MaterialButton();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
+            this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanelPname = new System.Windows.Forms.TableLayoutPanel();
             this.tboxBedno = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel32 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tboxDate = new System.Windows.Forms.TextBox();
-            this.tboxMonth = new System.Windows.Forms.TextBox();
-            this.tboxYear = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tboxPname = new System.Windows.Forms.TextBox();
@@ -146,10 +142,14 @@ namespace Rajni
             this.tboxPid = new System.Windows.Forms.TextBox();
             this.Print = new MaterialSkin.Controls.MaterialButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tboxAddress = new System.Windows.Forms.TextBox();
             this.tboxPhone = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel32 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tboxDate = new System.Windows.Forms.TextBox();
+            this.tboxMonth = new System.Windows.Forms.TextBox();
+            this.tboxYear = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.tblDTandGo = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -201,10 +201,10 @@ namespace Rajni
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanelPname.SuspendLayout();
-            this.tableLayoutPanel32.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanelPid.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel32.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
             this.tblDTandGo.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -1346,6 +1346,7 @@ namespace Rajni
             this.tableLayoutPanelPatientData.Controls.Add(this.tableLayoutPanelPname, 0, 1);
             this.tableLayoutPanelPatientData.Controls.Add(this.tableLayoutPanelPid, 0, 0);
             this.tableLayoutPanelPatientData.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tableLayoutPanelPatientData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelPatientData.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelPatientData.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelPatientData.Name = "tableLayoutPanelPatientData";
@@ -1376,6 +1377,15 @@ namespace Rajni
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(718, 35);
             this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // tboxAddress
+            // 
+            this.tboxAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxAddress.Location = new System.Drawing.Point(73, 0);
+            this.tboxAddress.Margin = new System.Windows.Forms.Padding(0);
+            this.tboxAddress.Name = "tboxAddress";
+            this.tboxAddress.Size = new System.Drawing.Size(270, 27);
+            this.tboxAddress.TabIndex = 7;
             // 
             // tableLayoutPanel6
             // 
@@ -1468,18 +1478,29 @@ namespace Rajni
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Titillium Web SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(7, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 20);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Address:";
+            // 
             // tableLayoutPanelPname
             // 
-            this.tableLayoutPanelPname.ColumnCount = 7;
-            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.38582F));
-            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.19775F));
-            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.193114F));
-            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.37047F));
-            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.157935F));
-            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.31587F));
-            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.37904F));
-            this.tableLayoutPanelPname.Controls.Add(this.tboxBedno, 6, 0);
-            this.tableLayoutPanelPname.Controls.Add(this.label8, 5, 0);
+            this.tableLayoutPanelPname.ColumnCount = 6;
+            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.95065F));
+            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.27511F));
+            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.584307F));
+            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.26077F));
+            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.87689F));
+            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.05227F));
+            this.tableLayoutPanelPname.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelPname.Controls.Add(this.tboxBedno, 5, 0);
+            this.tableLayoutPanelPname.Controls.Add(this.label8, 4, 0);
             this.tableLayoutPanelPname.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanelPname.Controls.Add(this.tboxPname, 1, 0);
             this.tableLayoutPanelPname.Controls.Add(this.label2, 2, 0);
@@ -1496,93 +1517,17 @@ namespace Rajni
             // tboxBedno
             // 
             this.tboxBedno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxBedno.Location = new System.Drawing.Point(635, 3);
+            this.tboxBedno.Location = new System.Drawing.Point(629, 3);
             this.tboxBedno.Name = "tboxBedno";
-            this.tboxBedno.Size = new System.Drawing.Size(86, 27);
+            this.tboxBedno.Size = new System.Drawing.Size(92, 27);
             this.tboxBedno.TabIndex = 15;
-            // 
-            // tableLayoutPanel32
-            // 
-            this.tableLayoutPanel32.ColumnCount = 2;
-            this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78F));
-            this.tableLayoutPanel32.Controls.Add(this.tableLayoutPanel9, 1, 0);
-            this.tableLayoutPanel32.Controls.Add(this.label31, 0, 0);
-            this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel32.Location = new System.Drawing.Point(411, 3);
-            this.tableLayoutPanel32.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.tableLayoutPanel32.Name = "tableLayoutPanel32";
-            this.tableLayoutPanel32.RowCount = 1;
-            this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(310, 29);
-            this.tableLayoutPanel32.TabIndex = 14;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel9.Controls.Add(this.tboxDate, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.tboxMonth, 1, 0);
-            this.tableLayoutPanel9.Controls.Add(this.tboxYear, 2, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(68, 0);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(242, 29);
-            this.tableLayoutPanel9.TabIndex = 1;
-            // 
-            // tboxDate
-            // 
-            this.tboxDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxDate.Location = new System.Drawing.Point(0, 0);
-            this.tboxDate.Margin = new System.Windows.Forms.Padding(0);
-            this.tboxDate.Name = "tboxDate";
-            this.tboxDate.Size = new System.Drawing.Size(80, 27);
-            this.tboxDate.TabIndex = 0;
-            this.tboxDate.Text = "DD";
-            // 
-            // tboxMonth
-            // 
-            this.tboxMonth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxMonth.Location = new System.Drawing.Point(80, 0);
-            this.tboxMonth.Margin = new System.Windows.Forms.Padding(0);
-            this.tboxMonth.Name = "tboxMonth";
-            this.tboxMonth.Size = new System.Drawing.Size(80, 27);
-            this.tboxMonth.TabIndex = 1;
-            this.tboxMonth.Text = "MM";
-            // 
-            // tboxYear
-            // 
-            this.tboxYear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxYear.Location = new System.Drawing.Point(160, 0);
-            this.tboxYear.Margin = new System.Windows.Forms.Padding(0);
-            this.tboxYear.Name = "tboxYear";
-            this.tboxYear.Size = new System.Drawing.Size(82, 27);
-            this.tboxYear.TabIndex = 2;
-            this.tboxYear.Text = "YY";
-            // 
-            // label31
-            // 
-            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Titillium Web SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(17, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(34, 20);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Age:";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Titillium Web SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(568, 0);
+            this.label8.Location = new System.Drawing.Point(560, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 20);
             this.label8.TabIndex = 13;
@@ -1593,7 +1538,7 @@ namespace Rajni
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Titillium Web SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 0);
+            this.label6.Location = new System.Drawing.Point(11, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 20);
@@ -1603,9 +1548,9 @@ namespace Rajni
             // tboxPname
             // 
             this.tboxPname.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxPname.Location = new System.Drawing.Point(78, 3);
+            this.tboxPname.Location = new System.Drawing.Point(82, 3);
             this.tboxPname.Name = "tboxPname";
-            this.tboxPname.Size = new System.Drawing.Size(270, 27);
+            this.tboxPname.Size = new System.Drawing.Size(285, 27);
             this.tboxPname.TabIndex = 5;
             // 
             // label2
@@ -1613,7 +1558,7 @@ namespace Rajni
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Titillium Web SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(360, 0);
+            this.label2.Location = new System.Drawing.Point(380, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 20);
             this.label2.TabIndex = 4;
@@ -1626,9 +1571,9 @@ namespace Rajni
             this.cboxSex.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cboxSex.Location = new System.Drawing.Point(406, 3);
+            this.cboxSex.Location = new System.Drawing.Point(427, 3);
             this.cboxSex.Name = "cboxSex";
-            this.cboxSex.Size = new System.Drawing.Size(112, 28);
+            this.cboxSex.Size = new System.Drawing.Size(118, 28);
             this.cboxSex.TabIndex = 10;
             // 
             // tableLayoutPanelPid
@@ -1766,15 +1711,6 @@ namespace Rajni
             this.tableLayoutPanel2.Size = new System.Drawing.Size(724, 32);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
-            // tboxAddress
-            // 
-            this.tboxAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tboxAddress.Location = new System.Drawing.Point(73, 0);
-            this.tboxAddress.Margin = new System.Windows.Forms.Padding(0);
-            this.tboxAddress.Name = "tboxAddress";
-            this.tboxAddress.Size = new System.Drawing.Size(270, 27);
-            this.tboxAddress.TabIndex = 7;
-            // 
             // tboxPhone
             // 
             this.tboxPhone.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1782,6 +1718,82 @@ namespace Rajni
             this.tboxPhone.Name = "tboxPhone";
             this.tboxPhone.Size = new System.Drawing.Size(203, 27);
             this.tboxPhone.TabIndex = 6;
+            // 
+            // tableLayoutPanel32
+            // 
+            this.tableLayoutPanel32.ColumnCount = 2;
+            this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78F));
+            this.tableLayoutPanel32.Controls.Add(this.tableLayoutPanel9, 1, 0);
+            this.tableLayoutPanel32.Controls.Add(this.label31, 0, 0);
+            this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel32.Location = new System.Drawing.Point(411, 3);
+            this.tableLayoutPanel32.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.tableLayoutPanel32.Name = "tableLayoutPanel32";
+            this.tableLayoutPanel32.RowCount = 1;
+            this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(310, 29);
+            this.tableLayoutPanel32.TabIndex = 14;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 3;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel9.Controls.Add(this.tboxDate, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tboxMonth, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.tboxYear, 2, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(68, 0);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(242, 29);
+            this.tableLayoutPanel9.TabIndex = 1;
+            // 
+            // tboxDate
+            // 
+            this.tboxDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxDate.Location = new System.Drawing.Point(3, 0);
+            this.tboxDate.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.tboxDate.Name = "tboxDate";
+            this.tboxDate.Size = new System.Drawing.Size(74, 27);
+            this.tboxDate.TabIndex = 0;
+            this.tboxDate.Text = "DD";
+            // 
+            // tboxMonth
+            // 
+            this.tboxMonth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxMonth.Location = new System.Drawing.Point(83, 0);
+            this.tboxMonth.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.tboxMonth.Name = "tboxMonth";
+            this.tboxMonth.Size = new System.Drawing.Size(74, 27);
+            this.tboxMonth.TabIndex = 1;
+            this.tboxMonth.Text = "MM";
+            // 
+            // tboxYear
+            // 
+            this.tboxYear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tboxYear.Location = new System.Drawing.Point(163, 0);
+            this.tboxYear.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.tboxYear.Name = "tboxYear";
+            this.tboxYear.Size = new System.Drawing.Size(76, 27);
+            this.tboxYear.TabIndex = 2;
+            this.tboxYear.Text = "YY";
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Titillium Web SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(17, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(34, 20);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Age:";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -1794,17 +1806,6 @@ namespace Rajni
             this.label4.Size = new System.Drawing.Size(67, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Phone No:";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Titillium Web SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 20);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Address:";
             // 
             // tblDTandGo
             // 
@@ -2062,14 +2063,14 @@ namespace Rajni
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanelPname.ResumeLayout(false);
             this.tableLayoutPanelPname.PerformLayout();
-            this.tableLayoutPanel32.ResumeLayout(false);
-            this.tableLayoutPanel32.PerformLayout();
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
             this.tableLayoutPanelPid.ResumeLayout(false);
             this.tableLayoutPanelPid.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel32.ResumeLayout(false);
+            this.tableLayoutPanel32.PerformLayout();
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
             this.tblDTandGo.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

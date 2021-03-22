@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using MaterialSkin;
-using MaterialSkin.Controls;
+using System.Windows.Forms;
 
 namespace Rajni
 {
@@ -64,7 +57,7 @@ namespace Rajni
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (tboxSigid.Text != "") 
+            if (tboxSigid.Text != "")
             {
                 try
                 {
@@ -88,22 +81,22 @@ namespace Rajni
                     con.Close();
 
                     dataGridView.DataSource = DS.Tables[0];
-                    for (int i=0; i<4; i++)
+                    for (int i = 0; i < 4; i++)
                     {
                         this.dataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    }  
-                    
+                    }
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("" + ex);
                 }
-            }             
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (tboxSigid.Text != "" && (tboxSig1.Text != "" || tboxSig2.Text != "" || tboxSig3.Text != "")) 
+            if (tboxSigid.Text != "" && (tboxSig1.Text != "" || tboxSig2.Text != "" || tboxSig3.Text != ""))
             {
                 SqlCommand cmd = new SqlCommand("AddSig", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -132,7 +125,7 @@ namespace Rajni
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(tboxSigid.Text != "") 
+            if (tboxSigid.Text != "")
             {
                 try
                 {
@@ -156,7 +149,7 @@ namespace Rajni
                 {
                     MessageBox.Show("" + ex);
                 }
-            }           
-        }   
+            }
+        }
     }
 }
